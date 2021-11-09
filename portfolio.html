@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>Merrik's Website</title>
-        <style>
-            body {
+        <style type="text/css">
+                       body {
                 background: rgb(6, 111, 121);
                 color: rgb(5, 0, 0);
                 padding: 10px;
@@ -63,41 +63,59 @@
             h2, h3 {
                 margin: 0px;
             }
-
-
-
-
-
+                
+              /* portfolio styles */
+              .content h1 {
+                color: black;
+            }
             
+            #portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            #portfolio li {
+                background: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            #portfolio li:hover {
+                background: #eee;
+            } 
+            
+            #portfolio a {
+                text-decoration: none;
+                color: #454545;
+            }
         </style>
     </head>
-    
+
     <body>
-            <!-- YOUR HTML TAGS GO HERE  -->
+      <div id="all-contents">
+        <nav>
+            <h1>Merrik's Website</h1>
+            <ul id="nav-ul">
+                <li class="nav-li">
+                  <a class="nav-a" href="index.html">Home</a>
+                </li>
+                <li class="nav-li">
+                  <a class="nav-a" href="portfolio.html">Portfolio</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="content">
+                <h1>Portfolio</h1>
+                <ul id="portfolio">
+                    <li><a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing adventure game for Halleb0t</a></li>
+                    <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
+                    <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes...</a></li>
                 
-            <!-- All content goes here -->
-
-        <div id="all-contents"> 
-            ...
-            <div/>
-            <nav>
-                <h1>Merrik's Crazy Website</h1>
-                <nav-ul>
-                    <nav-li>
-                      <a href="index.html"> Home: </a>
-                    </nav-li>
-                    <nav-li>
-                      <a href="portfolio.html"> Portfolio: </a>
-                      </nav-li>
-                </nav-ul>
-                </nav>
-    
-            <main>
-                   
-
-
-
-            </main>
-        </div>
+                    </ul>
+        </main>
+    </div>
+      </div>
     </body>
 </html>
