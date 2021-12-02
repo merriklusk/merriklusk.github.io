@@ -13,7 +13,9 @@
         game.load.image('grace', './asset/collectable/grace-head.png');
         game.load.image('kennedi', './asset/collectable/kennedi-head.png');
         game.load.image('max', './asset/collectable/max-head.png');
-        game.load.image('Star', './asset/collectable/Star.png');
+        game.load.image('star', './asset/collectable/Star.png');
+        game.load.image('mushroom', './asset/collectable/mario 1.png');
+        game.load.image('mushroom2', './asset/collectable/mushroom 2.png');
         game.load.atlas('halle', './asset/halle/phaser-json-array/halle.png', './asset/halle/phaser-json-array/halle.json');
     };
 })(window);
