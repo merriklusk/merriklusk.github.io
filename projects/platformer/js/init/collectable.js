@@ -12,7 +12,9 @@
         kennedi: {assetKey: 'kennedi', points: 50},
         star: {assetKey: 'star', points: 9999999999999999999},
         mushroom: {assetKey: 'mushroom', points: 50},
-        mushroom2: {assetKey: 'mushroom2', points: 50}
+        mushroom2: {assetKey: 'mushroom2', points: 50},
+        coin: {assetKey: 'coin', points: 50},
+        bigmushroom: {assetKey: 'big mushroom', points: 50}
     };
     
     /**
@@ -40,13 +42,12 @@
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
         // example: 
-        createCollectable(type.steve, 200, 170, 6, 0.7);
-        createCollectable(type.max, 750, 300, 6, 0.7);
+        createCollectable(type.coin, 200, 170, 6, 0.7);
+        createCollectable(type.bigmushroom, 680, 300, 6, 0.7);
         createCollectable(type.mushroom2, 650, 580, 6, 0.7);
-        createCollectable(type.star, 469, 150, 5, 0.7);
         createCollectable(type.mushroom, 200, 480, 6, 0.7);
-        
-        // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
+        createCollectable(type.star, 740, 150, 5, 0.7);
+         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
     };
     collectable.init = init;
