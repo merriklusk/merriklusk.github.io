@@ -24,7 +24,9 @@ var init = function (window) {
         var circles = [];
 
         // TODO 2 : Create a function that draws a circle 
-        function drawCircle();
+        function drawCircle(){
+            
+        }
 
         // TODO 3 / 8 : Call the drawCircle() function 
         drawCircle(5);
