@@ -37,7 +37,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'green');
+            var backgroundFill = draw.rect(canvasWidth,groundY,'#444444');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
@@ -52,8 +52,8 @@ var background = function (window) {
             var moon = draw.bitmap('img/moon.png'); //created a variable called moon. Draw.nitmap draws the image and stores it in the variable
             moon.x = canvasWidth - 300; //moves the moon right
             moon.y = groundY - 450; //moves the moon up 
-            moon.scaleX = .8; // scales the moon smaller
-            moon.scaleY = .8; // scales the moon smaller 
+            moon.scaleX = .5; // scales the moon smaller
+            moon.scaleY = .5; // scales the moon smaller 
             background.addChild(moon);
 
            
@@ -64,7 +64,7 @@ var background = function (window) {
                 for(var i = 0;i < 10; i++) {
                 var buildingHeight = 300; // creates a variable called buildingheight that holds the height of the building in pixels 
                 var building = draw.rect(75,buildingHeight,'LightGray','Black',1); // creates a variable called building that holds the data for the drawing building 
-                building.x = 200*i; // positions the x of each  building 200 pixels from the next building on each loop
+                building.x = 530*i; // positions the x of each  building 200 pixels from the next building on each loop
                 building.y = groundY-buildingHeight; // sets the y of the building off of groundY - buildingHeight 
                 background.addChild(building); // adds building to background so it can be seen 
                 buildings.push(building); // pushes each individual building to the building 
@@ -96,7 +96,13 @@ var background = function (window) {
             }
             
             // TODO 5: Part 2 - Parallax
-            
+            //loops the buildings and moves them to the left by 0.5 pixels
+                for (var i = 0; i < buildings.length; i++){
+                    buildings[i].x = buildings[i].x - 0.5; //moves the building's x position by .5 pixels
+                    if(buildings[i].x < 0) { //checks to see if the building's x pos is off the left side and if it is it resets to the right side
+                        buildings[i].x = canvasWidth
+                 }
+            }
 
         } // end of update function - DO NOT DELETE
         
