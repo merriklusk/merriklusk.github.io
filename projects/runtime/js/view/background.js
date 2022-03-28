@@ -52,8 +52,8 @@ var background = function (window) {
             var moon = draw.bitmap('img/moon.png'); //created a variable called moon. Draw.nitmap draws the image and stores it in the variable
             moon.x = canvasWidth - 300; //moves the moon right
             moon.y = groundY - 450; //moves the moon up 
-            moon.scaleX = .5; // scales the moon smaller
-            moon.scaleY = .5; // scales the moon smaller 
+            moon.scaleX = .3; // scales the moon smaller
+            moon.scaleY = .3; // scales the moon smaller 
             background.addChild(moon);
 
            
