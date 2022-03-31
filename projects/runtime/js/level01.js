@@ -17,7 +17,7 @@ var level01 = function (window) {
             "speed": -3,
             "gameItems": [
                 { "type": "sawblade", "x": 400, "y": groundY - 30 },
-                { "type": "sawblade", "x": 600, "y": groundY - 30 },
+                { "type": "sawblade", "x": 700, "y": groundY -120 },
                 { "type": "sawblade", "x": 900, "y": groundY - 30 },
             
                 { "type": "enemy", "x": 500, "y": groundY  -30 },
@@ -29,6 +29,9 @@ var level01 = function (window) {
                 { "type": "reward", "x": 950, "y": groundY - 20 },
                 { "type": "reward", "x": 1099, "y": groundY - 20 },  
                 { "type": "reward", "x": 1200, "y": groundY - 20 },
+
+                { "type": "boss", "x": 2500, "y": groundY - 60 },
+
             ]
         };
         window.levelData = levelData;
@@ -75,6 +78,30 @@ var level01 = function (window) {
                 enemy.fadeOut();
             };
         }
+        function createBoss(x, y){
+            var boss = game.createGameItem('boss', 25); // creating the game item and storing it in the variable enemy
+            var purpleSquare = draw.bitmap('img/boss.png'); //creates rectangle and stores as red square 
+            purpleSquare.x = -95;
+            purpleSquare.y = -250;
+            boss.addChild(purpleSquare); //add the redsquare to the enemy game item
+            
+            boss.x = x;
+            boss.y = y;
+        
+            game.addGameItem(boss); //adds enemy to the game
+
+            boss.velocityX = -1; //this causes the enemey to move one pixel to the left on the x position 
+            boss.onPlayerCollision = function() {
+                console.log('The boss has hit Halle');
+                game.changeIntegrity(-100000);
+            }
+            boss.onProjectileCollision = function() {
+                console.log('The projectile has hit Halle');
+                game.changeIntegrity();
+                game.increaseScore(1000000);
+                boss.fadeOut();
+            };
+        }
         function createReward(x, y){
             var reward = game.createGameItem('reward',15); // creating the game item and storing it in the variable enemy
             var blueSquare = draw.bitmap('img/reward.png'); //creates rectangle and stores as red square 
@@ -111,6 +138,9 @@ var level01 = function (window) {
         }
         if(gameItem.type === "reward"){
             createReward(gameItem.x, gameItem.y);
+        }
+        if(gameItem.type === "boss"){
+            createBoss(gameItem.x, gameItem.y);
         }
     };
 

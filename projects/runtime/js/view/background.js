@@ -59,6 +59,7 @@ var background = function (window) {
            
             
             
+            
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
 
                 for(var i = 0;i < 10; i++) {
