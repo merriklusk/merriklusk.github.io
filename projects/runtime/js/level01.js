@@ -32,9 +32,14 @@ var level01 = function (window) {
 
                 { "type": "boss", "x": 2500, "y": groundY - 60 },
 
+                { "type": "car", "x": 3000, "y": groundY - 30 },
+                { "type": "car", "x": 3500, "y": groundY - 30 },
+                { "type": "car", "x": 4000, "y": groundY - 30 },
+
+                { "type": "coin", "x": 5000, "y": groundY - 130 },
             ]
         };
-        window.levelData = levelData;
+        window.levelData = levelData
         // set this to true or false depending on if you want to see hitzones
         game.setDebugMode(true);
 
@@ -76,6 +81,30 @@ var level01 = function (window) {
                 game.changeIntegrity();
                 game.increaseScore(10);
                 enemy.fadeOut();
+            };
+        }
+        function createCar(x, y){
+            var car = game.createGameItem('car', 25); // creating the game item and storing it in the variable enemy
+            var yellowSquare = draw.bitmap('img/car.png'); //creates rectangle and stores as red square 
+            yellowSquare.x = -85;
+            yellowSquare.y = -140;
+            car.addChild(yellowSquare); //add the redsquare to the enemy game item
+            
+            car.x = x;
+            car.y = y;
+        
+            game.addGameItem(car); //adds enemy to the game
+
+            car.velocityX = -1; //this causes the enemey to move one pixel to the left on the x position 
+            car.onPlayerCollision = function() {
+                console.log('The car has hit Halle');
+                game.changeIntegrity(-100);
+            }
+            car.onProjectileCollision = function() {
+                console.log('The projectile has hit Halle');
+                game.changeIntegrity();
+                game.increaseScore(100);
+                car.fadeOut();
             };
         }
         function createBoss(x, y){
@@ -124,6 +153,29 @@ var level01 = function (window) {
             }
      
         };
+        function createCoin(x, y){
+            var coin = game.createGameItem('coin',150); // creating the game item and storing it in the variable enemy
+            var brownSquare = draw.bitmap('img/coin.png'); //creates rectangle and stores as red square 
+            brownSquare.x = -135;
+            brownSquare.y = -130;
+            coin.addChild(brownSquare); //add the redsquare to the enemy game item
+            
+            coin.x = x;
+            coin.y = y;
+
+            game.addGameItem(coin); //adds enemy to the game
+
+            coin.velocityX = -1; //this causes the enemey to move one pixel to the left on the x position 
+    
+            
+            coin.onPlayerCollision = function() {
+                console.log('The coin has hit Halle');
+                game.changeIntegrity(6434645634);
+                game.increaseScore(6969696969420420);
+                reward.fadeOut();
+            }
+     
+        };
         
         
     
@@ -141,6 +193,13 @@ var level01 = function (window) {
         }
         if(gameItem.type === "boss"){
             createBoss(gameItem.x, gameItem.y);
+        }
+    
+         if(gameItem.type === "car"){
+            createCar(gameItem.x, gameItem.y);
+        }
+        if(gameItem.type === "coin"){
+            createCoin(gameItem.x, gameItem.y);
         }
     };
 
